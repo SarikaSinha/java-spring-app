@@ -1,6 +1,6 @@
 FROM registry.access.redhat.com/ubi8/openjdk-17:1.13 AS builder
 LABEL maintainer="IBM Java Engineering at IBM Cloud"
-RUN yum update -y && yum urgrade -y
+RUN microdnf update -y && microdnf urgrade -y
 
 USER root
 WORKDIR /app
@@ -25,7 +25,7 @@ USER 1001
 # (https://github.com/ibmruntimes/ci.docker/tree/master/ibmjava/8/sfj/ubi-min)
 
 FROM registry.access.redhat.com/ubi8/openjdk-17:1.13
-RUN yum update -y && yum urgrade -y
+RUN microdnf update -y && microdnf urgrade -y
 
 # disable vulnerable TLS algorithms
 USER root
